@@ -36,7 +36,7 @@ export const Table = () => {
                     sorting={sorting}
                     sortTable={setSorting}
                 />
-                <TableBody data={data} />
+                <TableBody data={data} shop={shop} />
             </table>
             <TableFooter page={page} shop={shop} />
         </div>

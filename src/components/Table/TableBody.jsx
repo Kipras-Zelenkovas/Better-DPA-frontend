@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const TableBody = ({ data }) => {
+export const TableBody = ({ data, shop }) => {
     return (
         <tbody className="">
             {data.data.data.map((item) => {
@@ -32,7 +32,7 @@ export const TableBody = ({ data }) => {
                         <td className="p-2 pr-4">{item.total}</td>
                         <td className="p-2">
                             <Link
-                                to={"/order?id=" + item.id}
+                                to={"/order?id=" + item.id + "&shop=" + shop}
                                 className="cursor-pointer border border-cyan-600 bg-cyan-600 w-fit py-1 px-3 transition hover:bg-indigo-700 duration-500 ease-in-out"
                             >
                                 Edit

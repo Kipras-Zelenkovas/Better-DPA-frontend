@@ -79,3 +79,24 @@ export const getOrder = async (setData, id, shop, source) => {
         console.log(error);
     }
 };
+
+export const setOrderStatus = async (shop, id, status, setData) => {
+    try {
+        await setTimeout(() => {
+            axios
+                .put(URL + "status", {
+                    shop: shop,
+                    id: id,
+                    status: status,
+                })
+                .then((res) => {
+                    setData(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }, 500);
+    } catch (error) {
+        console.log(error);
+    }
+};

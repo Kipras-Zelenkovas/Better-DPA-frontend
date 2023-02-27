@@ -13,8 +13,8 @@ export const NavBar = () => {
     }, [open]);
 
     return (
-        <div className="md:w-1/5 w-full h-screen bg-violet-700 ">
-            <div className="w-full h-20 flex justify-between flex-wrap">
+        <div className="md:w-1/5 w-full md:h-screen bg-violet-700 ">
+            <div className="w-full h-20 md:flex justify-between flex-wrap">
                 <p className="p-4 text-4xl text-white">Menu</p>
                 <svg
                     className="mt-5 mr-10 cursor-pointer"
