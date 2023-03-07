@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// const URL = "https://back.multistore.kiwwwi.si/";
 const URL = "http://127.0.0.1:8000/";
 
 export const getData = async (
@@ -21,6 +22,9 @@ export const getData = async (
                         order: sorting,
                     },
                     cancelToken: source.token,
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("key")}`,
+                    },
                 })
                 .then((res) => {
                     setData(res.data);
@@ -44,6 +48,9 @@ export const getOrderReports = async (setData, source, shop) => {
                         shop: shop,
                     },
                     cancelToken: source.token,
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("key")}`,
+                    },
                 })
                 .then((res) => {
                     setData(res.data);
@@ -67,6 +74,9 @@ export const getOrder = async (setData, id, shop, source) => {
                         id: id,
                     },
                     cancelToken: source.token,
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("key")}`,
+                    },
                 })
                 .then((res) => {
                     setData(res.data);
@@ -84,11 +94,21 @@ export const setOrderStatus = async (shop, id, status, setData) => {
     try {
         await setTimeout(() => {
             axios
-                .put(URL + "status", {
-                    shop: shop,
-                    id: id,
-                    status: status,
-                })
+                .put(
+                    URL + "status",
+                    {
+                        shop: shop,
+                        id: id,
+                        status: status,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "key"
+                            )}`,
+                        },
+                    }
+                )
                 .then((res) => {
                     setData(res.data);
                 })

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { logout } from "../functions/auth";
 import { data } from "../functions/shops";
 
 export const NavBar = () => {
@@ -77,6 +78,12 @@ export const NavBar = () => {
             ) : (
                 ""
             )}
+            <p
+                className="border border-2 border-black text-2xl block text-white cursor-pointer w-fit p-1"
+                onClick={() => logout()}
+            >
+                Logout
+            </p>
         </div>
     );
 };
